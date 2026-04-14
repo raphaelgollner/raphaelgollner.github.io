@@ -104,3 +104,22 @@ footer {
 @keyframes fadeIn {
     to { opacity: 1; }
 }
+
+/* Estilo para os botões do Itch.io */
+.btn-itch {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #fa5c5c; /* Cor vermelha/rosada característica do itch.io */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-itch:hover {
+    background-color: #e04b4b;
+    transform: scale(1.05); /* Pequeno efeito de zoom ao passar o mouse */
+}
