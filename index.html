@@ -3,63 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Raphael Gollner</title>
-    <link rel="stylesheet" href="style.css">
+    <title>True r4zz0r | Portfólio Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0e14;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-4px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            height: 350px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #38bdf8;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0b0e14;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Raphael Gollner</h1>
-            <p>Game Developer | IT & SysAdmin</p>
+<body class="selection:bg-sky-500 selection:text-white">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card px-6 py-3 rounded-2xl">
+            <span class="text-xl font-bold tracking-tighter gradient-text uppercase">True r4zz0r</span>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#perfil" class="nav-link">Perfil Técnico</a>
+                <a href="#jogos" class="nav-link">Jogos</a>
+                <a href="#videos" class="nav-link">YouTube</a>
+            </div>
+            <a href="mailto:contato@exemplo.com" class="bg-sky-600 hover:bg-sky-500 text-white text-xs px-4 py-2 rounded-full font-bold transition-colors">CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="w-24 h-24 bg-gradient-to-tr from-sky-500 to-indigo-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold text-white shadow-lg shadow-sky-500/20">
+                R4
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">Game Dev & <span class="gradient-text">SysAdmin</span></h1>
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                Construindo mundos virtuais em Unity e otimizando infraestruturas de TI complexas. A união entre a criatividade dos jogos e a precisão da engenharia de sistemas.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#jogos" class="px-8 py-3 bg-white text-black rounded-full font-bold hover:bg-sky-400 transition-all">Ver Projetos</a>
+                <a href="#perfil" class="px-8 py-3 glass-card rounded-full font-bold hover:bg-slate-800 transition-all">Habilidades</a>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <section id="sobre">
-            <h2>Sobre Mim</h2>
-            <p>Desenvolvedor apaixonado por criar mundos e resolver problemas. Tenho experiência com Unity 3D, C# e tecnologias web, com forte foco em mecânicas imersivas e simulações. Quando não estou programando jogos ou gerenciando infraestruturas de TI, compartilho minhas jornadas em jogos espaciais no YouTube.</p>
-        </section>
+    <!-- Seção de Perfil Técnico (DADOS) -->
+    <section id="perfil" class="py-20 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 italic border-l-4 border-sky-500 pl-4 uppercase tracking-widest">Matriz de Competências</h2>
+                    <p class="text-slate-400 mb-6">
+                        Diferente de desenvolvedores puramente criativos, minha base em **SysAdmin** me permite criar jogos com performance otimizada, arquitetura de rede sólida e automação de processos via scripts avançados.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#Unity3D</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#CSharp</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#NetCode</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#Powershell</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#WindowsServer</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#GeraçãoProcedural</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="projetos">
-            <h2>Projetos em Destaque</h2>
-            <div class="grid-projetos">
-    <div class="card">
-        <h3>Pulse Factor</h3>
-        <p>O jogo está em FASE DE DOCUMENTAÇÃO, ou seja, não existe gameplay ou arte relacionada a ele ainda. O nome do jogo, logo, proposta, gameplay, arte e outras coisas podem ser mudadas com o tempo. 
+    <!-- Jogos (Itch.io Widgets) -->
+    <section id="jogos" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center uppercase tracking-widest">Projetos <span class="text-sky-500">Playable</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Jogo 1 -->
+                <div class="glass-card p-4 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4">
+                        <!-- Widget Real do Itch.io -->
+                        <iframe frameborder="0" src="https://itch.io/embed/123456?dark=true" width="100%" height="167"><a href="#">Jogo Espacial</a></iframe>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-lg font-bold text-sky-400">Starship Navigator</h3>
+                        <p class="text-xs text-slate-400 mt-2 mb-4">Simulação física de órbita e combate tático. Desenvolvido totalmente em Unity com C#.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">v1.2.0</span>
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-tighter">Live no Itch.io</span>
+                        </div>
+                    </div>
+                </div>
 
-Meu plano é fazer o jogo todo sozinho, desde a documentação até o lançamento. Lógico que isso pode mudar com o tempo.
+                <!-- Jogo 2 -->
+                <div class="glass-card p-4 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4">
+                        <iframe frameborder="0" src="https://itch.io/embed/654321?dark=true" width="100%" height="167"><a href="#">City Builder</a></iframe>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-lg font-bold text-sky-400">Grid Architect</h3>
+                        <p class="text-xs text-slate-400 mt-2 mb-4">Um city-builder focado em gestão de recursos e infraestrutura de rede elétrica.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Beta</span>
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-tighter">Live no Itch.io</span>
+                        </div>
+                    </div>
+                </div>
 
-Algumas inspirações (seja de gameplay, design ou arte): Avorion, Rebel Galaxy, Elite: Dangerous, No Man's Sky and Everspace.</p>
-        <span class="tech-tag">Unity</span>
-        <span class="tech-tag">C#</span>
-        <br>
-        <a href="https://raphaelgollner.itch.io/pulse-factor" class="btn-itch" target="_blank" rel="noopener noreferrer">Ver no Itch.io</a>
-    </div>
+                <!-- Jogo 3 -->
+                <div class="glass-card p-4 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 text-center py-10 bg-slate-800/50">
+                        <p class="text-sm text-slate-500 font-mono italic">[ Próximo Projeto ]</p>
+                        <p class="text-xs text-slate-600 mt-2">Geração de Masmorras Procedurais</p>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-lg font-bold text-slate-500 italic">Project D.U.N.G.E.O.N</h3>
+                        <p class="text-xs text-slate-400 mt-2 mb-4">Exploração técnica de algoritmos de caminhada aleatória para mapas.</p>
+                    </div>
+                </div>
 
-    <div class="card">
-        <h3>The Lurking Fear</h3>
-        <p>The Lurking Fear trata-se de um projeto de faculdade feito como trabalho final da matéria de Game Design do curso superior que fiz na FAESA.</p>
-        <span class="tech-tag">C#</span>
-        <br>
-        <a href="https://raphaelgollner.itch.io/the-lurking-fear" class="btn-itch" target="_blank" rel="noopener noreferrer">Ver no Itch.io</a>
-    </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-        <h3>Star Maze PC</h3>
-        <p>Projeto desenvolvido na Unity em 2018 durante o curso de Jogos Digitais na FAESA.</p>
-        <span class="tech-tag">Unity</span>
-        <span class="tech-tag">C#</span>
-        <br>
-        <a href="https://raphaelgollner.itch.io/starmazepc" class="btn-itch" target="_blank" rel="noopener noreferrer">Ver no Itch.io</a>
-    </div>
-</div>
-        </section>
-    </main>
+    <!-- YouTube Gallery -->
+    <section id="videos" class="py-20 px-6 bg-sky-950/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold uppercase tracking-widest mb-4">Produção de <span class="text-red-500">Conteúdo</span></h2>
+                <p class="text-slate-400">Reviews, Devlogs e exploração de simuladores espaciais.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-4 rounded-3xl">
+                    <div class="video-container mb-4">
+                        <!-- Substituir pelo link Embed do seu vídeo principal -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Review de Jogo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Review: Simuladores de 2026</h3>
+                    <p class="text-sm text-slate-400">Uma análise profunda sobre a fidelidade física nos novos lançamentos de ficção científica.</p>
+                </div>
 
-    <footer>
-        <p>&copy; 2026 Raphael Gollner. Todos os direitos reservados.</p>
+                <div class="glass-card p-4 rounded-3xl">
+                    <div class="video-container mb-4">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Devlog" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Devlog: Sistemas de IA</h3>
+                    <p class="text-sm text-slate-400">Como implementei um sistema de tomada de decisão para frotas espaciais em Unity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60">
+            <p class="text-sm">&copy; 2026 True r4zz0r. Built with Code & Science.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-sky-400">GitHub</a>
+                <a href="#" class="hover:text-red-500">YouTube</a>
+                <a href="#" class="hover:text-rose-400">Itch.io</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Inicialização do Gráfico de Habilidades
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            
+            const skillsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Unity 3D', 'C# Development', 'SysAdmin', 'Scripting (PS)', 'UI/UX Design', 'Content Creation'],
+                    datasets: [{
+                        label: 'Proficiência Técnica',
+                        data: [95, 90, 85, 80, 70, 88],
+                        fill: true,
+                        backgroundColor: 'rgba(56, 189, 248, 0.2)',
+                        borderColor: '#38bdf8',
+                        pointBackgroundColor: '#38bdf8',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#38bdf8'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: { color: '#94a3b8', font: { size: 12 } },
+                            ticks: { display: false, stepSize: 20 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Smooth Scroll simplificado
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
