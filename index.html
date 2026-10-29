@@ -3,290 +3,741 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>True r4zz0r | Portfólio Digital</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Raphael Gollner | True r4zz0r</title>
+    <meta name="description" content="Raphael Gollner (True r4zz0r) — profissional de TI desde 2014, formado em Jogos Digitais. Projetos de jogos, código e canal no YouTube.">
+    <meta property="og:title" content="Raphael Gollner | True r4zz0r">
+    <meta property="og:description" content="TI desde 2014, formado em Jogos Digitais. Jogos, código e YouTube.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raphaelgollner.github.io/">
+    <meta name="theme-color" content="#0a0d13">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
+        :root {
+            --bg: #0a0d13;
+            --bg-alt: #0e121a;
+            --surface: #131823;
+            --surface-2: #1a2030;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --text: #e6e9ef;
+            --muted: #8b93a7;
+            --accent: #38bdf8;
+            --accent-2: #a78bfa;
+            --itch: #fa5c5c;
+            --yt: #ff3d3d;
+            --ok: #4ade80;
+            --warn: #fbbf24;
+            --radius: 16px;
+            --mono: 'JetBrains Mono', ui-monospace, monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 88px; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0e14;
-            color: #e2e8f0;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
+        ::selection { background: var(--accent); color: #000; }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
 
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 96px 0; }
+        section.alt { background: var(--bg-alt); border-block: 1px solid var(--border); }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+        .lead { color: var(--muted); max-width: 620px; margin-top: 12px; }
+        .section-head { margin-bottom: 44px; }
+        .section-head.row { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
 
-        .glass-card:hover {
-            border-color: #38bdf8;
-            transform: translateY(-4px);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.75rem;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            height: 350px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
+        .grad {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
 
-        .nav-link {
-            transition: color 0.3s ease;
+        /* ---------- Nav ---------- */
+        nav {
+            position: fixed; inset: 0 0 auto 0; z-index: 50;
+            padding: 14px 0;
+            transition: background 0.3s, border-color 0.3s;
+            border-bottom: 1px solid transparent;
         }
-
-        .nav-link:hover {
-            color: #38bdf8;
+        nav.scrolled {
+            background: rgba(10, 13, 19, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom-color: var(--border);
         }
+        nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .logo { font-family: var(--mono); font-weight: 600; font-size: 1rem; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; font-size: 0.9rem; color: var(--muted); }
+        .nav-links a:hover { color: var(--text); }
+        .nav-social { display: flex; gap: 8px; }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0b0e14;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
+        .icon-btn {
+            width: 38px; height: 38px;
+            display: grid; place-items: center;
             border-radius: 10px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+        .icon-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface); }
+        .icon-btn svg { width: 18px; height: 18px; }
+
+        /* ---------- Hero ---------- */
+        header.hero {
+            position: relative;
+            min-height: 92vh;
+            display: flex; align-items: center;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+            opacity: 0.6;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 620px; height: 620px;
+            top: -180px; right: -160px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+        .hero .wrap { position: relative; z-index: 1; }
+        .status {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--mono); font-size: 0.78rem;
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(19, 24, 35, 0.6);
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+        .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+        .hero h1 {
+            font-size: clamp(2.6rem, 8vw, 5.2rem);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.02;
+        }
+        .hero h1 small {
+            display: block;
+            font-family: var(--mono);
+            font-size: clamp(1rem, 2.4vw, 1.35rem);
+            font-weight: 400;
+            letter-spacing: 0;
+            color: var(--muted);
+            margin-top: 14px;
+        }
+        .hero p.intro { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); max-width: 600px; margin: 28px 0 36px; }
+        .hero p.intro strong { color: var(--text); font-weight: 600; }
+        .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 600; font-size: 0.95rem;
+            transition: all 0.2s;
+            border: 1px solid var(--border-strong);
+        }
+        .btn svg { width: 16px; height: 16px; }
+        .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+        .btn.ghost:hover { background: var(--surface); }
+        .btn.sm { padding: 9px 16px; font-size: 0.85rem; }
+
+        .stats {
+            display: grid; grid-template-columns: repeat(3, auto);
+            justify-content: start; gap: 48px;
+            margin-top: 64px;
+        }
+        .stat b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; }
+        .stat span { font-size: 0.85rem; color: var(--muted); }
+
+        /* ---------- Sobre ---------- */
+        .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
+        .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+        .about-text p strong { color: var(--text); font-weight: 600; }
+
+        .edu { display: grid; gap: 12px; margin-top: 28px; }
+        .edu-item {
+            display: flex; gap: 14px; align-items: center;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+        }
+        .edu-item .ico {
+            flex: none;
+            width: 42px; height: 42px; border-radius: 10px;
+            display: grid; place-items: center;
+            background: var(--surface-2);
+            color: var(--accent);
+        }
+        .edu-item .ico svg { width: 20px; height: 20px; }
+        .edu-item b { display: block; font-size: 0.98rem; }
+        .edu-item span { font-size: 0.85rem; color: var(--muted); }
+
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px;
+            background: linear-gradient(var(--accent), var(--accent-2), transparent);
+        }
+        .tl-item { position: relative; padding-bottom: 28px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-item::before {
+            content: ''; position: absolute; left: -28px; top: 6px;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--bg); border: 2px solid var(--accent);
+        }
+        .tl-item .when { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); }
+        .tl-item h3 { font-size: 1.05rem; margin: 2px 0 4px; }
+        .tl-item p { font-size: 0.92rem; color: var(--muted); }
+
+        /* ---------- Skills ---------- */
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .skill-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+        .skill-card header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .skill-card header .ico {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: grid; place-items: center;
+            background: rgba(56, 189, 248, 0.12); color: var(--accent);
+        }
+        .skill-card.hobby header .ico { background: rgba(167, 139, 250, 0.12); color: var(--accent-2); }
+        .skill-card header .ico svg { width: 20px; height: 20px; }
+        .skill-card h3 { font-size: 1.15rem; }
+        .skill-card > p { color: var(--muted); font-size: 0.92rem; margin-bottom: 18px; }
+        .skill-list { list-style: none; display: grid; gap: 10px; }
+        .skill-list li {
+            display: flex; gap: 10px; align-items: baseline;
+            font-size: 0.95rem;
+        }
+        .skill-list li::before { content: '▹'; color: var(--accent); flex: none; }
+        .skill-card.hobby .skill-list li::before { color: var(--accent-2); }
+        .skill-list li span { color: var(--muted); font-size: 0.85rem; }
+        .skill-list a { border-bottom: 1px dashed var(--border-strong); }
+        .skill-list a:hover { color: var(--accent-2); border-color: var(--accent-2); }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-family: var(--mono); font-size: 0.72rem;
+            padding: 4px 10px; border-radius: 6px;
+            background: var(--surface-2);
+            color: var(--muted);
+            border: 1px solid var(--border);
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #38bdf8;
+        /* ---------- Jogos ---------- */
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .game-card {
+            display: flex; flex-direction: column;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            overflow: hidden;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+        .game-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(250, 92, 92, 0.5);
+            box-shadow: 0 18px 40px -20px rgba(250, 92, 92, 0.35);
+        }
+        .game-cover {
+            position: relative;
+            aspect-ratio: 3 / 1;
+            background: #05070b;
+            overflow: hidden;
+        }
+        .game-cover img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s; }
+        .game-card:hover .game-cover img { transform: scale(1.04); }
+        .badge {
+            position: absolute; top: 12px; left: 12px;
+            font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+            padding: 4px 10px; border-radius: 6px;
+            background: rgba(10, 13, 19, 0.85);
+            backdrop-filter: blur(6px);
+            border: 1px solid var(--border-strong);
+        }
+        .badge.dev { color: var(--warn); }
+        .badge.proto { color: var(--accent); }
+        .badge.uni { color: var(--accent-2); }
+        .game-body { padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+        .game-body h3 { font-size: 1.2rem; }
+        .game-body p { color: var(--muted); font-size: 0.92rem; flex: 1; }
+        .game-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+        .link-arrow { font-size: 0.85rem; font-weight: 600; color: var(--itch); white-space: nowrap; }
+        .link-arrow:hover { text-decoration: underline; }
+
+        /* ---------- GitHub ---------- */
+        .repo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .repo {
+            display: flex; flex-direction: column; gap: 12px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .repo:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+        .repo.featured { grid-column: 1 / -1; background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(167, 139, 250, 0.06)), var(--surface); border-color: rgba(56, 189, 248, 0.3); }
+        .repo-top { display: flex; align-items: center; gap: 10px; }
+        .repo-top svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+        .repo-top h3 { font-family: var(--mono); font-size: 1rem; font-weight: 600; word-break: break-word; }
+        .repo p { color: var(--muted); font-size: 0.92rem; flex: 1; }
+        .repo-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 0.82rem; color: var(--muted); }
+        .lang { display: inline-flex; align-items: center; gap: 6px; }
+        .lang i { width: 10px; height: 10px; border-radius: 50%; }
+        .repo-links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* ---------- YouTube ---------- */
+        .yt-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; align-items: stretch; }
+        .video {
+            position: relative; aspect-ratio: 16 / 9;
+            border-radius: var(--radius); overflow: hidden;
+            border: 1px solid var(--border);
+            background: #000;
+        }
+        .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .yt-side { display: flex; flex-direction: column; gap: 14px; }
+        .yt-item {
+            display: flex; gap: 14px; align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+            transition: border-color 0.2s;
+        }
+        .yt-item:hover { border-color: rgba(255, 61, 61, 0.5); }
+        .yt-item img { width: 136px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; flex: none; }
+        .yt-item b { font-size: 0.9rem; line-height: 1.35; display: block; }
+        .yt-item span { font-size: 0.78rem; color: var(--muted); }
+        .yt-cta {
+            margin-top: auto;
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255, 61, 61, 0.14), rgba(255, 61, 61, 0.04));
+            border: 1px solid rgba(255, 61, 61, 0.3);
+        }
+        .yt-cta p { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; }
+        .btn.yt { background: var(--yt); border-color: var(--yt); color: #fff; }
+        .btn.yt:hover { filter: brightness(1.1); }
+
+        /* ---------- Footer ---------- */
+        footer { padding: 72px 0 40px; }
+        .contact {
+            text-align: center;
+            padding: 56px 24px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: radial-gradient(ellipse at top, rgba(56, 189, 248, 0.1), transparent 60%), var(--surface);
+        }
+        .contact h2 { margin-bottom: 10px; }
+        .contact p { color: var(--muted); margin-bottom: 28px; }
+        .contact .cta { justify-content: center; }
+        .foot-bottom {
+            display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+            margin-top: 40px; font-size: 0.82rem; color: var(--muted);
+        }
+
+        /* ---------- Reveal ---------- */
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            * { transition: none !important; }
+        }
+
+        /* ---------- Responsivo ---------- */
+        @media (max-width: 900px) {
+            .about-grid, .yt-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 720px) {
+            section { padding: 72px 0; }
+            .skills-grid, .games-grid, .repo-grid { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+            .stat b { font-size: 1.5rem; }
+            .stat span { font-size: 0.75rem; }
+            .yt-item img { width: 112px; }
+            .wrap { padding: 0 16px; }
         }
     </style>
 </head>
-<body class="selection:bg-sky-500 selection:text-white">
+<body>
+
+    <!-- Ícones reutilizáveis -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></symbol>
+        <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></symbol>
+        <symbol id="i-itch" viewBox="0 0 24 24"><path fill="currentColor" d="M3.13 1.34C2.08 1.97.02 4.34 0 4.97v1.04c0 1.32 1.23 2.48 2.35 2.48 1.35 0 2.47-1.12 2.47-2.44 0 1.32 1.08 2.44 2.43 2.44S9.64 7.37 9.64 6.05c0 1.32 1.15 2.44 2.5 2.44h.02c1.35 0 2.5-1.12 2.5-2.44 0 1.32 1.04 2.44 2.39 2.44s2.43-1.12 2.43-2.44c0 1.32 1.12 2.44 2.47 2.44 1.12 0 2.35-1.16 2.35-2.48V4.97c-.02-.63-2.08-3-3.13-3.63-3.26-.11-5.52-.13-8.67-.13S6.4 1.23 3.13 1.34Zm6.2 6.3a2.83 2.83 0 0 1-4.82.02 2.85 2.85 0 0 1-2.41 1.43c-.16 0-.33-.05-.47-.1-.2 2.04-.28 3.99-.31 5.41v.02c0 .72-.01 1.32-.01 2.15.04 4.3-.43 5.58 1.9 5.71 1.32.07 2.66-.07 3.88-.52 1.07-.4 1.65-1.03 1.65-1.03l.08-.53s-1.95.54-3.26.5c-1.3-.05-2.66-.15-2.88-1.73a3.3 3.3 0 0 1-.02-.46s1.28.31 2.9.39c1 .04 1.94-.06 2.86-.17 1.75-.21 3.28-1.29 3.47-2.28.3-1.55.28-3.78.28-3.78 0-3.03-1.99-3.92-1.99-3.92-1-.46-2.73-.65-4.53-.67h-.04c-1.8.02-3.53.21-4.53.67 0 0-1.99.89-1.99 3.92Zm2.67.17c.74 0 1.37.58 1.37 1.2v2.65c0 .61-.63 1.2-1.37 1.2-.74 0-1.37-.59-1.37-1.2V9.01c0-.62.63-1.2 1.37-1.2Z"/></symbol>
+        <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+        <symbol id="i-repo" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 19.5V5a2 2 0 0 1 2-2h14v15H6.5A2.5 2.5 0 0 0 4 20.5 2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10 12 5 2 10l10 5 10-5ZM6 12v5c3 2 9 2 12 0v-5"/></symbol>
+        <symbol id="i-chip" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 6h12v12H6zM9 9h6v6H9zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+        <symbol id="i-server" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h18v6H3zM3 14h18v6H3zM7 7h.01M7 17h.01"/></symbol>
+        <symbol id="i-pad" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 11h4M8 9v4M15 12h.01M18 10h.01M17.3 5H6.7a4 4 0 0 0-3.98 3.59l-.7 6.9A3 3 0 0 0 5 19c1 0 1.5-.5 2-1l1.4-1.4A2 2 0 0 1 9.8 16h4.4a2 2 0 0 1 1.4.6L17 18c.5.5 1 1 2 1a3 3 0 0 0 2.98-3.51l-.7-6.9A4 4 0 0 0 17.3 5Z"/></symbol>
+    </svg>
 
     <!-- Navegação -->
-    <nav class="fixed w-full z-50 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card px-6 py-3 rounded-2xl">
-            <span class="text-xl font-bold tracking-tighter gradient-text uppercase">True r4zz0r</span>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#inicio" class="nav-link">Início</a>
-                <a href="#perfil" class="nav-link">Perfil Técnico</a>
-                <a href="#jogos" class="nav-link">Jogos</a>
-                <a href="#videos" class="nav-link">YouTube</a>
+    <nav id="nav">
+        <div class="wrap">
+            <a href="#inicio" class="logo">true<span>_</span>r4zz0r</a>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#jogos">Jogos</a>
+                <a href="#codigo">Código</a>
+                <a href="#youtube">YouTube</a>
             </div>
-            <a href="mailto:contato@exemplo.com" class="bg-sky-600 hover:bg-sky-500 text-white text-xs px-4 py-2 rounded-full font-bold transition-colors">CONTATO</a>
+            <div class="nav-social">
+                <a class="icon-btn" href="https://github.com/raphaelgollner" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+                <a class="icon-btn" href="https://raphaelgollner.itch.io" target="_blank" rel="noopener" aria-label="itch.io"><svg><use href="#i-itch"/></svg></a>
+                <a class="icon-btn" href="https://www.youtube.com/@truer4zz0r" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="inicio" class="pt-32 pb-20 px-6">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="w-24 h-24 bg-gradient-to-tr from-sky-500 to-indigo-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold text-white shadow-lg shadow-sky-500/20">
-                R4
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">Game Dev & <span class="gradient-text">SysAdmin</span></h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-                Construindo mundos virtuais em Unity e otimizando infraestruturas de TI complexas. A união entre a criatividade dos jogos e a precisão da engenharia de sistemas.
+    <!-- Hero -->
+    <header id="inicio" class="hero">
+        <div class="wrap">
+            <div class="status"><i></i> TI desde 2014</div>
+            <h1>
+                Raphael <span class="grad">Gollner</span>
+                <small>// a.k.a. True r4zz0r</small>
+            </h1>
+            <p class="intro">
+                Trabalho com <strong>infraestrutura e suporte de TI</strong> e sou formado em <strong>Jogos Digitais</strong>.
+                Nas horas vagas, faço jogos em Unity, mexo com mods e gravo gameplay pro YouTube.
             </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#jogos" class="px-8 py-3 bg-white text-black rounded-full font-bold hover:bg-sky-400 transition-all">Ver Projetos</a>
-                <a href="#perfil" class="px-8 py-3 glass-card rounded-full font-bold hover:bg-slate-800 transition-all">Habilidades</a>
+            <div class="cta">
+                <a href="#jogos" class="btn primary">Ver projetos</a>
+                <a href="#sobre" class="btn ghost">Sobre mim</a>
+            </div>
+            <div class="stats">
+                <div class="stat"><b>12+</b><span>anos em TI</span></div>
+                <div class="stat"><b>4</b><span>jogos no itch.io</span></div>
+                <div class="stat"><b>2</b><span>formações</span></div>
             </div>
         </div>
     </header>
 
-    <!-- Seção de Perfil Técnico (DADOS) -->
-    <section id="perfil" class="py-20 px-6 bg-slate-900/30">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+    <!-- Sobre -->
+    <section id="sobre" class="alt">
+        <div class="wrap about-grid">
+            <div class="about-text reveal">
+                <div class="eyebrow">01 · Sobre</div>
+                <h2>Do help desk ao firewall.</h2>
+                <p style="margin-top:20px">
+                    Comecei em <strong>2014</strong> no atendimento de primeiro nível e fui assumindo mais responsabilidade com o tempo:
+                    montagem e manutenção de máquinas, servidores, virtualização e configuração de firewalls.
+                </p>
+                <p>
+                    Em paralelo, me formei em <strong>Jogos Digitais</strong>. É dali que vêm os projetos em Unity e C#
+                    e a mania de abrir jogos pra ver como funcionam por dentro.
+                </p>
+                <div class="edu">
+                    <div class="edu-item">
+                        <div class="ico"><svg><use href="#i-cap"/></svg></div>
+                        <div><b>Superior em Jogos Digitais</b><span>Tecnologia em Jogos Digitais · FAESA</span></div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="ico"><svg><use href="#i-chip"/></svg></div>
+                        <div><b>Técnico em Informática</b><span>Formação técnica</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline reveal">
+                <div class="tl-item">
+                    <div class="when">2014</div>
+                    <h3>Suporte de primeiro nível</h3>
+                    <p>Atendimento ao usuário, resolução de chamados e suporte geral.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="when">→</div>
+                    <h3>Hardware e manutenção</h3>
+                    <p>Montagem, manutenção e diagnóstico de computadores e periféricos.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="when">→</div>
+                    <h3>Servidores e virtualização</h3>
+                    <p>Configuração e administração de hosts Proxmox.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="when">hoje</div>
+                    <h3>Redes e segurança</h3>
+                    <p>Configuração básica de firewalls e produtos Fortinet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow">02 · Habilidades</div>
+                <h2>Trabalho e hobby</h2>
+            </div>
+            <div class="skills-grid">
+                <article class="skill-card reveal">
+                    <header>
+                        <div class="ico"><svg><use href="#i-server"/></svg></div>
+                        <h3>Profissional</h3>
+                    </header>
+                    <p>O que faço no dia a dia.</p>
+                    <ul class="skill-list">
+                        <li>Suporte técnico geral</li>
+                        <li>Montagem e manutenção de hardware</li>
+                        <li>Produtos Fortinet <span>· firewall, config. básica</span></li>
+                        <li>Proxmox <span>· servidores de virtualização</span></li>
+                        <li>Redes e infraestrutura</li>
+                    </ul>
+                </article>
+                <article class="skill-card hobby reveal">
+                    <header>
+                        <div class="ico"><svg><use href="#i-pad"/></svg></div>
+                        <h3>Hobbies</h3>
+                    </header>
+                    <p>O que faço por diversão (e aprendizado).</p>
+                    <ul class="skill-list">
+                        <li>Desenvolvimento de jogos em Unity</li>
+                        <li>Programação em C#</li>
+                        <li>Vibe coding <span>· apps web com IA</span></li>
+                        <li>Modificação de jogos</li>
+                        <li><a href="https://www.youtube.com/@truer4zz0r" target="_blank" rel="noopener">Canal no YouTube</a></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jogos -->
+    <section id="jogos" class="alt">
+        <div class="wrap">
+            <div class="section-head row reveal">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 italic border-l-4 border-sky-500 pl-4 uppercase tracking-widest">Matriz de Competências</h2>
-                    <p class="text-slate-400 mb-6">
-                        Diferente de desenvolvedores puramente criativos, minha base em **SysAdmin** me permite criar jogos com performance otimizada, arquitetura de rede sólida e automação de processos via scripts avançados.
+                    <div class="eyebrow">03 · Jogos</div>
+                    <h2>No itch.io</h2>
+                    <p class="lead">Projetos da faculdade e projetos pessoais.</p>
+                </div>
+                <a class="btn ghost sm" href="https://raphaelgollner.itch.io" target="_blank" rel="noopener"><svg><use href="#i-itch"/></svg> Perfil no itch.io</a>
+            </div>
+            <div class="games-grid">
+                <a class="game-card reveal" href="https://raphaelgollner.itch.io/idlefactory" target="_blank" rel="noopener">
+                    <div class="game-cover">
+                        <img src="https://img.itch.zone/aW1nLzI3MDcwNjQ0LmpwZw==/original/gozc1q.jpg" alt="Capa do Idle Factory" loading="lazy">
+                        <span class="badge proto">PROTÓTIPO</span>
+                    </div>
+                    <div class="game-body">
+                        <h3>Idle Factory</h3>
+                        <p>Jogo incremental de automação: monte a linha de produção e deixe a fábrica rodar.</p>
+                        <div class="game-foot">
+                            <div class="tags"><span class="tag">Idle</span><span class="tag">Automação</span><span class="tag">Simulação</span></div>
+                            <span class="link-arrow">Ver no itch.io ↗</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="game-card reveal" href="https://raphaelgollner.itch.io/pulse-factor" target="_blank" rel="noopener">
+                    <div class="game-cover">
+                        <img src="https://img.itch.zone/aW1nLzcwNzE5NjEucG5n/original/AilXMH.png" alt="Capa do Pulse Factor" loading="lazy">
+                        <span class="badge dev">EM DOCUMENTAÇÃO</span>
+                    </div>
+                    <div class="game-body">
+                        <h3>Pulse Factor</h3>
+                        <p>Ação e aventura espacial com mineração e combate. Inspirado em Avorion, Everspace e Elite: Dangerous. Ainda na fase de documentação.</p>
+                        <div class="game-foot">
+                            <div class="tags"><span class="tag">Sci-fi</span><span class="tag">Espaço</span><span class="tag">Ação</span></div>
+                            <span class="link-arrow">Ver no itch.io ↗</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="game-card reveal" href="https://raphaelgollner.itch.io/the-lurking-fear" target="_blank" rel="noopener">
+                    <div class="game-cover">
+                        <img src="https://img.itch.zone/aW1nLzEwMDE5MjM5LnBuZw==/original/uiq7ZO.png" alt="Capa do The Lurking Fear" loading="lazy">
+                        <span class="badge uni">TCC</span>
+                    </div>
+                    <div class="game-body">
+                        <h3>The Lurking Fear</h3>
+                        <p>Projeto final da faculdade: jogo de tabuleiro com elementos de RPG e um app Android em realidade aumentada que sorteia cartas e mostra criaturas em 3D.</p>
+                        <div class="game-foot">
+                            <div class="tags"><span class="tag">Unity</span><span class="tag">AR</span><span class="tag">Tabuleiro</span></div>
+                            <span class="link-arrow">Ver no itch.io ↗</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="game-card reveal" href="https://raphaelgollner.itch.io/starmazepc" target="_blank" rel="noopener">
+                    <div class="game-cover">
+                        <img src="https://img.itch.zone/aW1nLzEwMDE5NDY3LnBuZw==/original/mDV1TX.png" alt="Capa do StarMaze" loading="lazy">
+                        <span class="badge uni">FACULDADE · 2018</span>
+                    </div>
+                    <div class="game-body">
+                        <h3>StarMaze (PC)</h3>
+                        <p>Labirinto espacial feito originalmente para VR no Android. Esta é uma versão para PC, adaptada como estudo.</p>
+                        <div class="game-foot">
+                            <div class="tags"><span class="tag">Unity</span><span class="tag">VR</span><span class="tag">Puzzle</span></div>
+                            <span class="link-arrow">Ver no itch.io ↗</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub -->
+    <section id="codigo">
+        <div class="wrap">
+            <div class="section-head row reveal">
+                <div>
+                    <div class="eyebrow">04 · Código</div>
+                    <h2>No GitHub</h2>
+                    <p class="lead">Ferramentas e experimentos web, a maioria feita com vibe coding.</p>
+                </div>
+                <a class="btn ghost sm" href="https://github.com/raphaelgollner" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg> Perfil no GitHub</a>
+            </div>
+            <div class="repo-grid">
+                <article class="repo featured reveal">
+                    <div class="repo-top"><svg><use href="#i-repo"/></svg><h3>gollnercontrolefinanceiro</h3></div>
+                    <p>
+                        App web de controle financeiro pessoal: lançamentos de receitas e despesas, categorias, status pago/pendente,
+                        recorrência anual, gráfico mensal por categoria, exportação em CSV e modo escuro. Login com dados isolados por usuário.
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#Unity3D</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#CSharp</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#NetCode</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#Powershell</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#WindowsServer</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-mono text-sky-400">#GeraçãoProcedural</span>
+                    <div class="tags"><span class="tag">JavaScript</span><span class="tag">Tailwind</span><span class="tag">Chart.js</span><span class="tag">Supabase</span></div>
+                    <div class="repo-meta">
+                        <div class="repo-links">
+                            <a class="btn primary sm" href="https://gollnercontrolefinanceiro.vercel.app" target="_blank" rel="noopener">Abrir app <svg><use href="#i-ext"/></svg></a>
+                            <a class="btn ghost sm" href="https://github.com/raphaelgollner/gollnercontrolefinanceiro" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg> Código</a>
                         </div>
                     </div>
+                </article>
+
+                <a class="repo reveal" href="https://github.com/raphaelgollner/FactoryWebGame" target="_blank" rel="noopener">
+                    <div class="repo-top"><svg><use href="#i-repo"/></svg><h3>FactoryWebGame</h3></div>
+                    <p>Jogo de fábrica que roda direto no navegador, em HTML, CSS e JavaScript puro.</p>
+                    <div class="repo-meta"><span class="lang"><i style="background:#f1e05a"></i>JavaScript</span><span>CC0-1.0</span></div>
+                </a>
+
+                <a class="repo reveal" href="https://github.com/raphaelgollner/raphaelgollner.github.io" target="_blank" rel="noopener">
+                    <div class="repo-top"><svg><use href="#i-repo"/></svg><h3>raphaelgollner.github.io</h3></div>
+                    <p>Esta página. Portfólio estático hospedado no GitHub Pages.</p>
+                    <div class="repo-meta"><span class="lang"><i style="background:#e34c26"></i>HTML</span><span>GitHub Pages</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube -->
+    <section id="youtube" class="alt">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow">05 · YouTube</div>
+                <h2>True r4zz0r no YouTube</h2>
+                <p class="lead">Gameplay, test drives no Star Citizen e showcases de mods.</p>
+            </div>
+            <div class="yt-grid">
+                <div class="video reveal">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/videoseries?list=UUQ6ZV6V-MYi5WFcZnn1TT0w"
+                        title="Últimos vídeos do canal True r4zz0r"
+                        loading="lazy"
+                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <div class="chart-container">
-                        <canvas id="skillsChart"></canvas>
+                <div class="yt-side reveal">
+                    <a class="yt-item" href="https://www.youtube.com/watch?v=8SIFAHSmUQY" target="_blank" rel="noopener">
+                        <img src="https://i.ytimg.com/vi/8SIFAHSmUQY/mqdefault.jpg" alt="" loading="lazy">
+                        <div><b>Test drive na nova Constellation MKV Centaurus</b><span>Star Citizen 4.10</span></div>
+                    </a>
+                    <a class="yt-item" href="https://www.youtube.com/watch?v=dvEU4-btj7Y" target="_blank" rel="noopener">
+                        <img src="https://i.ytimg.com/vi/dvEU4-btj7Y/mqdefault.jpg" alt="" loading="lazy">
+                        <div><b>O básico do Refined Storage</b><span>Mod showcase</span></div>
+                    </a>
+                    <div class="yt-cta">
+                        <p>Tem vídeo novo de vez em quando. Se inscreve lá!</p>
+                        <a class="btn yt sm" href="https://www.youtube.com/@truer4zz0r?sub_confirmation=1" target="_blank" rel="noopener"><svg><use href="#i-youtube"/></svg> Inscrever-se</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Jogos (Itch.io Widgets) -->
-    <section id="jogos" class="py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center uppercase tracking-widest">Projetos <span class="text-sky-500">Playable</span></h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Jogo 1 -->
-                <div class="glass-card p-4 rounded-2xl">
-                    <div class="rounded-xl overflow-hidden mb-4">
-                        <!-- Widget Real do Itch.io -->
-                        <iframe frameborder="0" src="https://itch.io/embed/123456?dark=true" width="100%" height="167"><a href="#">Jogo Espacial</a></iframe>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-lg font-bold text-sky-400">Starship Navigator</h3>
-                        <p class="text-xs text-slate-400 mt-2 mb-4">Simulação física de órbita e combate tático. Desenvolvido totalmente em Unity com C#.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">v1.2.0</span>
-                            <span class="text-xs font-bold text-rose-500 uppercase tracking-tighter">Live no Itch.io</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jogo 2 -->
-                <div class="glass-card p-4 rounded-2xl">
-                    <div class="rounded-xl overflow-hidden mb-4">
-                        <iframe frameborder="0" src="https://itch.io/embed/654321?dark=true" width="100%" height="167"><a href="#">City Builder</a></iframe>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-lg font-bold text-sky-400">Grid Architect</h3>
-                        <p class="text-xs text-slate-400 mt-2 mb-4">Um city-builder focado em gestão de recursos e infraestrutura de rede elétrica.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Beta</span>
-                            <span class="text-xs font-bold text-rose-500 uppercase tracking-tighter">Live no Itch.io</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jogo 3 -->
-                <div class="glass-card p-4 rounded-2xl">
-                    <div class="rounded-xl overflow-hidden mb-4 text-center py-10 bg-slate-800/50">
-                        <p class="text-sm text-slate-500 font-mono italic">[ Próximo Projeto ]</p>
-                        <p class="text-xs text-slate-600 mt-2">Geração de Masmorras Procedurais</p>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-lg font-bold text-slate-500 italic">Project D.U.N.G.E.O.N</h3>
-                        <p class="text-xs text-slate-400 mt-2 mb-4">Exploração técnica de algoritmos de caminhada aleatória para mapas.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- YouTube Gallery -->
-    <section id="videos" class="py-20 px-6 bg-sky-950/10">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold uppercase tracking-widest mb-4">Produção de <span class="text-red-500">Conteúdo</span></h2>
-                <p class="text-slate-400">Reviews, Devlogs e exploração de simuladores espaciais.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="glass-card p-4 rounded-3xl">
-                    <div class="video-container mb-4">
-                        <!-- Substituir pelo link Embed do seu vídeo principal -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Review de Jogo" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Review: Simuladores de 2026</h3>
-                    <p class="text-sm text-slate-400">Uma análise profunda sobre a fidelidade física nos novos lançamentos de ficção científica.</p>
-                </div>
-
-                <div class="glass-card p-4 rounded-3xl">
-                    <div class="video-container mb-4">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Devlog" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Devlog: Sistemas de IA</h3>
-                    <p class="text-sm text-slate-400">Como implementei um sistema de tomada de decisão para frotas espaciais em Unity.</p>
+    <!-- Contato / Footer -->
+    <footer>
+        <div class="wrap">
+            <div class="contact reveal">
+                <h2>Vamos conversar?</h2>
+                <p>Me encontre por aqui:</p>
+                <div class="cta">
+                    <a class="btn ghost" href="https://github.com/raphaelgollner" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg> GitHub</a>
+                    <a class="btn ghost" href="https://raphaelgollner.itch.io" target="_blank" rel="noopener"><svg><use href="#i-itch"/></svg> itch.io</a>
+                    <a class="btn ghost" href="https://www.youtube.com/@truer4zz0r" target="_blank" rel="noopener"><svg><use href="#i-youtube"/></svg> YouTube</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60">
-            <p class="text-sm">&copy; 2026 True r4zz0r. Built with Code & Science.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-sky-400">GitHub</a>
-                <a href="#" class="hover:text-red-500">YouTube</a>
-                <a href="#" class="hover:text-rose-400">Itch.io</a>
+            <div class="foot-bottom">
+                <span>© <span id="year">2026</span> Raphael Gollner · True r4zz0r</span>
+                <a href="#inicio">Voltar ao topo ↑</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Inicialização do Gráfico de Habilidades
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('skillsChart').getContext('2d');
-            
-            const skillsChart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['Unity 3D', 'C# Development', 'SysAdmin', 'Scripting (PS)', 'UI/UX Design', 'Content Creation'],
-                    datasets: [{
-                        label: 'Proficiência Técnica',
-                        data: [95, 90, 85, 80, 70, 88],
-                        fill: true,
-                        backgroundColor: 'rgba(56, 189, 248, 0.2)',
-                        borderColor: '#38bdf8',
-                        pointBackgroundColor: '#38bdf8',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#38bdf8'
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            pointLabels: { color: '#94a3b8', font: { size: 12 } },
-                            ticks: { display: false, stepSize: 20 }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false }
-                    }
+        // Fundo da navbar ao rolar
+        const nav = document.getElementById('nav');
+        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Animação de entrada das seções
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
                 }
             });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-            // Smooth Scroll simplificado
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
+        // Anos de TI e ano do rodapé sempre atualizados
+        const now = new Date().getFullYear();
+        document.getElementById('year').textContent = now;
+        document.querySelector('.stat b').textContent = (now - 2014) + '+';
     </script>
 </body>
 </html>
