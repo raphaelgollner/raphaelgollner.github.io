@@ -1,0 +1,160 @@
+{
+  "updatedAt": "2026-11-22T11:35:36.025Z",
+  "games": [
+    {
+      "id": "4541435",
+      "title": "Idle Factory",
+      "url": "https://raphaelgollner.itch.io/idlefactory",
+      "blurb": "Build, automate and expand your factory on a procedurally generated isometric map. Alpha build.",
+      "genre": "Simulation",
+      "thumb": "https://img.itch.zone/aW1nLzMxNjgzOTI3LnBuZw==/315x250%23c/wpae4k.png",
+      "cover": "https://img.itch.zone/aW1nLzMxNjgzOTI3LnBuZw==/original/mvjQaB.png",
+      "status": "In development",
+      "updated": "08 November 2026 @ 13:53 UTC",
+      "platforms": [
+        "Windows"
+      ]
+    },
+    {
+      "id": "1212078",
+      "title": "Pulse Factor",
+      "url": "https://raphaelgollner.itch.io/pulse-factor",
+      "blurb": "Fly, trade and fight in a living star system. Arcade space sim in pre-alpha.",
+      "genre": "Simulation",
+      "thumb": "https://img.itch.zone/aW1nLzMxNjgzMDQ2LnBuZw==/315x250%23c/DRN9U%2B.png",
+      "cover": "",
+      "status": "In development",
+      "updated": "01 November 2026 @ 18:02 UTC",
+      "platforms": [
+        "Windows"
+      ]
+    },
+    {
+      "id": "1700692",
+      "title": "The Lurking Fear (Projeto de Faculdade)",
+      "url": "https://raphaelgollner.itch.io/the-lurking-fear",
+      "blurb": "Projeto final do curso Superior em Tecnologia de Jogos Digitais",
+      "genre": "Adventure",
+      "thumb": "https://img.itch.zone/aW1nLzEwMDE5MDYzLnBuZw==/315x250%23c/WJzCCI.png",
+      "cover": "",
+      "status": "Prototype",
+      "updated": "",
+      "platforms": []
+    },
+    {
+      "id": "1548494",
+      "title": "StarMaze (PC)",
+      "url": "https://raphaelgollner.itch.io/starmazepc",
+      "blurb": "Jogo desenvolvido durante meu curso.",
+      "genre": "Puzzle",
+      "thumb": "https://img.itch.zone/aW1nLzEwMDE5Mzk4LmpwZw==/315x250%23c/o8Zh%2Bg.jpg",
+      "cover": "",
+      "status": "",
+      "updated": "",
+      "platforms": []
+    }
+  ],
+  "videos": [
+    {
+      "id": "8SIFAHSmUQY",
+      "title": "TEST DRIVE NA NOVA CONSTELLATION MKV CENTAURUS- Star Citizen 4.10",
+      "url": "https://www.youtube.com/watch?v=8SIFAHSmUQY",
+      "published": "2026-10-19T14:30:30+00:00",
+      "views": 257,
+      "thumb": "https://i.ytimg.com/vi/8SIFAHSmUQY/hqdefault.jpg"
+    },
+    {
+      "id": "8O4-kSrw5nY",
+      "title": "O espaço é a fronteira final!",
+      "url": "https://www.youtube.com/watch?v=8O4-kSrw5nY",
+      "published": "2026-10-16T19:39:59+00:00",
+      "views": 0,
+      "thumb": "https://i.ytimg.com/vi/8O4-kSrw5nY/hqdefault.jpg"
+    },
+    {
+      "id": "dvEU4-btj7Y",
+      "title": "O BÁSICO DO REFINED STORAGE - MOD SHOWCASE",
+      "url": "https://www.youtube.com/watch?v=dvEU4-btj7Y",
+      "published": "2026-09-28T15:00:04+00:00",
+      "views": 177,
+      "thumb": "https://i.ytimg.com/vi/dvEU4-btj7Y/hqdefault.jpg"
+    },
+    {
+      "id": "92-rkzOjJ3w",
+      "title": "A NADA COMPLEXA FÁBRICA DE PÃES! - All Of Create - #09",
+      "url": "https://www.youtube.com/watch?v=92-rkzOjJ3w",
+      "published": "2026-09-23T14:30:36+00:00",
+      "views": 134,
+      "thumb": "https://i.ytimg.com/vi/92-rkzOjJ3w/hqdefault.jpg"
+    },
+    {
+      "id": "nmUIOh-ZG64",
+      "title": "A PLATAFORMA E OS DIRIGÍVEIS - All Of Create - #08",
+      "url": "https://www.youtube.com/watch?v=nmUIOh-ZG64",
+      "published": "2026-07-20T15:45:03+00:00",
+      "views": 89,
+      "thumb": "https://i.ytimg.com/vi/nmUIOh-ZG64/hqdefault.jpg"
+    },
+    {
+      "id": "gWOTGPSUd7M",
+      "title": "Voar voar, subir subir... AGORA CONSEGUIMOS EXPLORAR OS CÉUS!  - All Of Create - #07",
+      "url": "https://www.youtube.com/watch?v=gWOTGPSUd7M",
+      "published": "2026-07-15T15:00:10+00:00",
+      "views": 52,
+      "thumb": "https://i.ytimg.com/vi/gWOTGPSUd7M/hqdefault.jpg"
+    },
+    {
+      "id": "rRNz59JIUFk",
+      "title": "APPLIED FACIL! SETUP BÁSICO PARA EARLY GAME!  - All Of Create - #06",
+      "url": "https://www.youtube.com/watch?v=rRNz59JIUFk",
+      "published": "2026-07-13T15:00:02+00:00",
+      "views": 65,
+      "thumb": "https://i.ytimg.com/vi/rRNz59JIUFk/hqdefault.jpg"
+    },
+    {
+      "id": "3TKp5LFACC0",
+      "title": "CORRIDAS RÁPIDAS DE POD! - Dart Racer",
+      "url": "https://www.youtube.com/watch?v=3TKp5LFACC0",
+      "published": "2026-07-06T17:00:13+00:00",
+      "views": 57,
+      "thumb": "https://i.ytimg.com/vi/3TKp5LFACC0/hqdefault.jpg"
+    },
+    {
+      "id": "rM9T1w9IhCk",
+      "title": "PRODUÇÃO DE BORRACHA E GERAÇÃO DE ENERGIA ELÉTRICA!  - All Of Create - #05",
+      "url": "https://www.youtube.com/watch?v=rM9T1w9IhCk",
+      "published": "2026-07-03T15:00:02+00:00",
+      "views": 142,
+      "thumb": "https://i.ytimg.com/vi/rM9T1w9IhCk/hqdefault.jpg"
+    }
+  ],
+  "repos": [
+    {
+      "name": "raphaelgollner.github.io",
+      "url": "https://github.com/raphaelgollner/raphaelgollner.github.io",
+      "description": "",
+      "language": "HTML",
+      "homepage": "",
+      "pushed": "2026-11-22T11:26:07Z",
+      "stars": 0
+    },
+    {
+      "name": "PulseFactor",
+      "url": "https://github.com/raphaelgollner/PulseFactor",
+      "description": "",
+      "language": "C#",
+      "homepage": "",
+      "pushed": "2026-10-31T19:57:36Z",
+      "stars": 0
+    },
+    {
+      "name": "IdleFactory",
+      "url": "https://github.com/raphaelgollner/IdleFactory",
+      "description": "",
+      "language": "",
+      "homepage": "",
+      "pushed": "2026-10-31T01:06:55Z",
+      "stars": 0
+    }
+  ]
+}
