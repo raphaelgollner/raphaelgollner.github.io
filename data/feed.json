@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T11:35:36.025Z",
+  "updatedAt": "2026-11-24T17:16:33.491Z",
   "games": [
     {
       "id": "4541435",
@@ -60,7 +60,7 @@
       "title": "TEST DRIVE NA NOVA CONSTELLATION MKV CENTAURUS- Star Citizen 4.10",
       "url": "https://www.youtube.com/watch?v=8SIFAHSmUQY",
       "published": "2026-10-19T14:30:30+00:00",
-      "views": 257,
+      "views": 258,
       "thumb": "https://i.ytimg.com/vi/8SIFAHSmUQY/hqdefault.jpg"
     },
     {
@@ -84,7 +84,7 @@
       "title": "A NADA COMPLEXA FÁBRICA DE PÃES! - All Of Create - #09",
       "url": "https://www.youtube.com/watch?v=92-rkzOjJ3w",
       "published": "2026-09-23T14:30:36+00:00",
-      "views": 134,
+      "views": 135,
       "thumb": "https://i.ytimg.com/vi/92-rkzOjJ3w/hqdefault.jpg"
     },
     {
@@ -135,7 +135,16 @@
       "description": "",
       "language": "HTML",
       "homepage": "",
-      "pushed": "2026-11-22T11:26:07Z",
+      "pushed": "2026-11-24T17:12:06Z",
+      "stars": 0
+    },
+    {
+      "name": "r4zz0r_sc_companion",
+      "url": "https://github.com/raphaelgollner/r4zz0r_sc_companion",
+      "description": "Companion para te auxiliar nas atividades envolvendo comércio, mineração e salvage dentro do Star Citizen.",
+      "language": "TypeScript",
+      "homepage": "",
+      "pushed": "2026-11-24T13:02:11Z",
       "stars": 0
     },
     {
