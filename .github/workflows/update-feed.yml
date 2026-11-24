@@ -1,0 +1,40 @@
+name: Atualizar feed (itch.io + YouTube)
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # a cada 6 horas
+  workflow_dispatch:         # botão "Run workflow" na aba Actions
+  push:
+    paths:
+      - 'scripts/update-feed.mjs'
+
+permissions:
+  contents: write
+  actions: write   # para disparar o deploy do Pages depois do commit
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/update-feed.mjs
+      - name: Commit se mudou
+        run: |
+          # updatedAt sempre muda; só commita se jogos ou vídeos mudaram de fato
+          if git diff --quiet -I '"updatedAt"' -- data/feed.json && git ls-files --error-unmatch data/feed.json >/dev/null 2>&1; then
+            echo "Nada novo."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/feed.json
+          git commit -m "feed: atualiza jogos e vídeos"
+          git push
+          # Commits feitos pelo GITHUB_TOKEN não disparam o workflow de deploy sozinhos,
+          # então chamamos ele aqui pra página publicada pegar o feed novo.
+          gh workflow run static.yml --ref "${GITHUB_REF_NAME}"
+        env:
+          GH_TOKEN: ${{ github.token }}
