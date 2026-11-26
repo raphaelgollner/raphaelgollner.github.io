@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T23:07:30.719Z",
+  "updatedAt": "2026-11-26T01:43:27.280Z",
   "games": [
     {
       "id": "4541435",
@@ -8,7 +8,7 @@
       "blurb": "Build, automate and expand your factory on a procedurally generated isometric map. Alpha build.",
       "genre": "Simulation",
       "thumb": "https://img.itch.zone/aW1nLzMxNjgzOTI3LnBuZw==/315x250%23c/wpae4k.png",
-      "cover": "https://img.itch.zone/aW1nLzMxNjgzOTI3LnBuZw==/original/mvjQaB.png",
+      "cover": "",
       "status": "In development",
       "updated": "08 November 2026 @ 13:53 UTC",
       "platforms": [
@@ -19,12 +19,12 @@
       "id": "1212078",
       "title": "Pulse Factor",
       "url": "https://raphaelgollner.itch.io/pulse-factor",
-      "blurb": "Fly, trade and fight in a living star system. Arcade space sim in pre-alpha.",
+      "blurb": "Fly, trade and fight in a living star system. Arcade space sim in alpha.",
       "genre": "Simulation",
-      "thumb": "https://img.itch.zone/aW1nLzMxNjgzMDQ2LnBuZw==/315x250%23c/DRN9U%2B.png",
+      "thumb": "https://img.itch.zone/aW1nLzMyODI4NDI0LnBuZw==/315x250%23c/EfCMYw.png",
       "cover": "",
       "status": "In development",
-      "updated": "01 November 2026 @ 18:02 UTC",
+      "updated": "25 November 2026 @ 23:32 UTC",
       "platforms": [
         "Windows"
       ]
@@ -49,7 +49,7 @@
       "genre": "Puzzle",
       "thumb": "https://img.itch.zone/aW1nLzEwMDE5Mzk4LmpwZw==/315x250%23c/o8Zh%2Bg.jpg",
       "cover": "",
-      "status": "",
+      "status": "Prototype",
       "updated": "",
       "platforms": []
     }
@@ -135,7 +135,7 @@
       "description": "",
       "language": "HTML",
       "homepage": "",
-      "pushed": "2026-11-25T02:06:37Z",
+      "pushed": "2026-11-25T23:07:31Z",
       "stars": 0
     },
     {
