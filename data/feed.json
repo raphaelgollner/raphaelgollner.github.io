@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T16:26:05.697Z",
+  "updatedAt": "2026-11-28T01:16:59.988Z",
   "games": [
     {
       "id": "4541435",
@@ -8,7 +8,7 @@
       "blurb": "Build, automate and expand your factory on a procedurally generated isometric map. Alpha build.",
       "genre": "Simulation",
       "thumb": "https://img.itch.zone/aW1nLzMxNjgzOTI3LnBuZw==/315x250%23c/wpae4k.png",
-      "cover": "",
+      "cover": "https://img.itch.zone/aW1nLzMxNjgzOTI3LnBuZw==/original/mvjQaB.png",
       "status": "In development",
       "updated": "08 November 2026 @ 13:53 UTC",
       "platforms": [
@@ -22,9 +22,9 @@
       "blurb": "Fly, trade and fight in a living star system. Arcade space sim in alpha.",
       "genre": "Simulation",
       "thumb": "https://img.itch.zone/aW1nLzMyODI4NDI0LnBuZw==/315x250%23c/EfCMYw.png",
-      "cover": "",
+      "cover": "https://img.itch.zone/aW1nLzMyODI4NDI0LnBuZw==/original/sl5DPk.png",
       "status": "In development",
-      "updated": "25 November 2026 @ 23:32 UTC",
+      "updated": "26 November 2026 @ 10:15 UTC",
       "platforms": [
         "Windows"
       ]
@@ -135,7 +135,7 @@
       "description": "",
       "language": "HTML",
       "homepage": "",
-      "pushed": "2026-11-27T01:36:35Z",
+      "pushed": "2026-11-27T16:26:06Z",
       "stars": 0
     },
     {
